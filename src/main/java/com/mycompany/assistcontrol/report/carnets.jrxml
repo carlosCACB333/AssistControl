@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="805b48f1-2fab-4768-a3c5-3458e281f9e7">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="44"/>
+	<queryString language="SQL">
+		<![CDATA[select * from users;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dni" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="firstname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="section" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="165" y="20" width="210" height="14" uuid="bfe0c6e2-828c-4496-895a-4d99b355a50c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARNET QR DE ASISTENCIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="245" splitType="Stretch">
+			<rectangle>
+				<reportElement x="102" y="2" width="156" height="241" uuid="ebd69779-841c-4074-b53e-d4f166f25b14"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="143" y="28" width="74" height="91" uuid="abd8391c-c4ad-4fc0-97d8-18f79a5b1849"/>
+			</rectangle>
+			<textField>
+				<reportElement x="112" y="134" width="136" height="13" uuid="44fb0530-56e8-4b74-bb5f-95d85cbe3c37"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="28" width="13" height="91" uuid="8ec44310-40b0-46df-91be-79fbde825de3"/>
+				<textElement textAlignment="Center" rotation="Right">
+					<font size="10" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="112" y="5" width="136" height="18" uuid="4123ba59-09f8-4b3d-99d5-0b35541ed538"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IE N° 86048 CÉSAR VALLEJO MENDOZA DISTRITO DE TARICÁ - UGEL HUARAZ]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Opaque" x="112" y="23" width="136" height="1" uuid="eeea76b0-b72b-4bec-9eba-8d46789e3ffa"/>
+			</line>
+			<textField>
+				<reportElement x="112" y="122" width="136" height="13" uuid="88608902-dde4-4e96-acb4-d067344f0191"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="137" y="149" width="90" height="90" backcolor="#FF3333" uuid="4aa1147b-5c17-46d2-bad7-505acab5193c"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(     new com.google.zxing.qrcode.QRCodeWriter().encode(             $F{dni}, com.google.zxing.BarcodeFormat.QR_CODE, 200, 200))]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="261" y="2" width="156" height="241" uuid="542db43a-92b8-4420-bb23-07147df63dc1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="271" y="5" width="136" height="18" uuid="c7c51738-38b4-4caa-8a68-07924dda582c"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IE N° 86048 CÉSAR VALLEJO MENDOZA DISTRITO DE TARICÁ - UGEL HUARAZ]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Opaque" x="271" y="23" width="136" height="1" uuid="e4beaf71-8067-4d63-95d3-c690b0529432"/>
+			</line>
+			<image hAlign="Center">
+				<reportElement x="264" y="60" width="150" height="150" forecolor="#000000" backcolor="#FFFFFF" uuid="9af742a3-06e4-47db-be63-cd8104af3fa9"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(     new com.google.zxing.qrcode.QRCodeWriter().encode(             $F{dni}, com.google.zxing.BarcodeFormat.QR_CODE, 200, 200))]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
